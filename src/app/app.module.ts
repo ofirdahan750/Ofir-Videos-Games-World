@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/header/search/search.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
     SearchComponent,
     HomePageComponent,
     FooterComponent,
+    NotFoundPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

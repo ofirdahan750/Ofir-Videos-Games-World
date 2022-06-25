@@ -1,5 +1,6 @@
 {
-  "name": "my-app",
+  "name": "Ofir-Videos-Games-World",
+  "homepage": "https://ofirdahan750.github.io/Ofir-Videos-Games-World/",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +8,11 @@
     "cleandev": "rm -rf node_modules && npm i && npm start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "push": "git add . && git commit -m \"Routes+git hub page\" && git push",
+    "fullpush": "npm run push && npm run deploy"
   },
   "private": true,
   "dependencies": {
