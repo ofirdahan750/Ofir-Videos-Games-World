@@ -11,7 +11,7 @@
     "test": "ng test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "push": "git add . && git commit -m \"Routes+git hub page\" && git push",
+    "push": "git add . && git commit -m \"Routes+github page\" && git push",
     "fullpush": "npm run push && npm run deploy"
   },
   "private": true,
