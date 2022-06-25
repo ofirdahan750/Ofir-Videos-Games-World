@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Vendor */
+@import "./assets/vendor/_normalize.scss";
+
+/* Font Rule */
+@import "./assets/fonts/inter/_inter.scss";
+
+/* Function */
+@import "./assets/function/_function.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
