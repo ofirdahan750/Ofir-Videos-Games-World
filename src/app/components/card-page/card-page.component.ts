@@ -29,7 +29,6 @@ export class CardPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    debugger;
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       this.gameId = params['id'];
       this.getGameDetails(this.gameId);

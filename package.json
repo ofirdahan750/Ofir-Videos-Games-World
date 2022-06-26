@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm i angular-cli-ghpages --save-dev && ng build --base-href \"https://ofirdahan750.github.io/Ofir-Videos-Games-World/\" && npx angular-cli-ghpages --dir=docs",
-    "push": "git add . && git commit -m \"Routes+github page\" && git push",
+    "push": "git add . && git commit -m \"Getting the template 90% reday only css + 10% function\" && git push",
     "fullpush": "npm run push && npm run deploy"
   },
   "private": true,
