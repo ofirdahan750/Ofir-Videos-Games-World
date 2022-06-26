@@ -17,6 +17,11 @@ import { SearchComponent } from './components/header/search/search.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { ItemFilterComponent } from './components/home-page/item-filter/item-filter.component';
+import { CardComponent } from './components/home-page/card/card.component';
+import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
+import { CardPageComponent } from './components/card-page/card-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +30,34 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
     HomePageComponent,
     FooterComponent,
     NotFoundPageComponent,
+    ItemFilterComponent,
+    CardComponent,
+    CardPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    GaugeModule.forRoot(),
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatIconModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpHeadersInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorsInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,20 @@
+<section class="item-filter">
+  <app-search></app-search>
+
+  <mat-form-field>
+    <mat-label>Sort by...</mat-label>
+    <mat-select
+      (selectionChange)="onChangeSortParams()"
+      panelClass="sort-select"
+      [(ngModel)]="sortBy"
+    >
+      <mat-option value="name">Name</mat-option>
+      <mat-option value="-released">Released</mat-option>
+      <mat-option value="-added">Added</mat-option>
+      <mat-option value="-created">Created</mat-option>
+      <mat-option value="-updated">Updated</mat-option>
+      <mat-option value="-rating">Rating</mat-option>
+      <mat-option value="metacritic">Metacritic</mat-option>
+    </mat-select>
+  </mat-form-field>
+</section>
