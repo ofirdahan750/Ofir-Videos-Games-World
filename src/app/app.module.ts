@@ -51,8 +51,7 @@ import { CardPageComponent } from './components/card-page/card-page.component';
     MatIconModule,
     MatAutocompleteModule,
     MatNativeDateModule,
-    MatInputModule
-
+    MatInputModule,
   ],
   providers: [
     {

@@ -9,14 +9,14 @@ import { Game } from 'src/models';
 })
 export class CardComponent implements OnInit {
   @Input() game!: Game;
-  currGame: Game
+  currGame: Game;
   constructor(private router: Router) {
-this.currGame = {} as Game
+    this.currGame = {} as Game;
   }
   handleClickGameCard(gameId: string): void {
     this.router.navigate(['details', gameId]);
   }
   ngOnInit(): void {
-    this.currGame = this.game
+    this.currGame = this.game;
   }
 }
