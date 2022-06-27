@@ -3,7 +3,10 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-
+  -webkit-animation-name: animate-center;
+  -webkit-animation-duration: 1s;
+  animation-name: animate-center;
+  animation-duration: 1s;
   &__title {
     color: #d1dce7;
     line-height: 1.5625rem;

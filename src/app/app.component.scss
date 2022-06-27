@@ -1,7 +1,12 @@
+
 .main {
   max-width: 100%;
   margin: 0 auto;
   min-height: 100vh;
+  -webkit-animation-name: animate-center;
+  -webkit-animation-duration: 1s;
+  animation-name: animate-center;
+  animation-duration: 1s;
 }
 
 @media screen and (max-width: 900px) {

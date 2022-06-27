@@ -29,6 +29,7 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['search-input']) {
         this.searchGames('metacrit', params['search-input']);

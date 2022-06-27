@@ -1,6 +1,9 @@
 .cards {
   margin: 20px auto 67px;
-
+  -webkit-animation-name: animate-center;
+  -webkit-animation-duration: 1s;
+  animation-name: animate-center;
+  animation-duration: 1s;
   &__grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
