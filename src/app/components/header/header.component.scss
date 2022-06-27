@@ -1,0 +1,19 @@
+.header {
+  margin: 0 auto 20px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.3);
+  display: flex;
+  justify-content: center;
+  &___wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: calc(100% - 2vw * 2);
+    border-bottom: 0.3px solid gray;
+  }
+  &__logo {
+    object-fit: cover;
+    max-width: 150px;
+    height: auto;
+    cursor: pointer;
+  }
+}

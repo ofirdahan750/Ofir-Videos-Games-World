@@ -1,8 +1,9 @@
 <app-item-filter
   [sort]="sort"
+  [games]="games"
   (searchGames)="searchGames($event)"
 ></app-item-filter>
-<section class="cards" *ngIf="games.length; else elseloading">
+<section class="cards" *ngIf="games; else elseloading">
   <!-- <ul class="cards__grid">
     <app-card></app-card>
   </ul> -->
@@ -31,4 +32,5 @@
     </div>
   </ng-container>
 </section>
+<div *ngIf="games.length === 0">No games found...</div>
 <ng-template #elseloading>loading...</ng-template>

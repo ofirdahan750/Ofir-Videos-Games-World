@@ -12,6 +12,7 @@ import { HttpService } from '../services/http.service';
 export class HomePageComponent implements OnInit {
   public sort: string;
   public games: Array<Game>;
+  public isLoading: Boolean;
   private routeSub: Subscription;
   private gameSub: Subscription;
 
@@ -24,6 +25,7 @@ export class HomePageComponent implements OnInit {
     this.games = [];
     this.routeSub = Subscription.EMPTY;
     this.gameSub = Subscription.EMPTY;
+    this.isLoading = true;
   }
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class HomePageComponent implements OnInit {
       } else {
         this.searchGames('metacrit');
       }
+      this.isLoading = false;
     });
   }
 
@@ -41,7 +44,6 @@ export class HomePageComponent implements OnInit {
       .getGameList(sort, search)
       .subscribe((gameList: APIResponse<Game>) => {
         this.games = gameList.results;
-        console.log(gameList);
       });
   }
 

@@ -1,10 +1,20 @@
-<form class="search-form" #form="ngForm">
+<form class="search">
   <input
     type="text"
-    class="search-form__input"
+    class="search__input"
     name="search"
-    placeholder="Search any games..."
-    (keyup)="onChangeInput(form)"
-    ngModel
+    placeholder="Search any games...(minimum 2 characters)"
+    (ngModelChange)="onChangeInput()"
+    [(ngModel)]="inputVal"
+    value="routeSub"
+    list="name-game"
+    minlength="2"
+    autocomplete="off"
+    autofocus
   />
+  <datalist id="name-game">
+    <option *ngFor="let game of gamesList" [value]="game.name">
+      {{ game.name }}
+    </option>
+  </datalist>
 </form>

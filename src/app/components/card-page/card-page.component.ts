@@ -24,8 +24,7 @@ export class CardPageComponent implements OnInit, OnDestroy {
     this.gameId = '';
     this.routeSub = Subscription.EMPTY;
     this.gameSub = Subscription.EMPTY;
-    // @ts-ignore: Unreachable code error
-    this.game = {};
+    this.game = {} as Game;
   }
 
   ngOnInit(): void {

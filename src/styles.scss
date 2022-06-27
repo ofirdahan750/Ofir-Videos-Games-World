@@ -11,3 +11,16 @@
   margin: 0;
   padding: 0;
 }
+.page {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #ffffff;
+  background: linear-gradient(287deg, #3171d1, #4e4e4f), #ffffff;
+  &__content {
+    margin: 0 auto;
+  }
+}
+img {
+  max-width: 200px;
+}
