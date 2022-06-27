@@ -1,11 +1,11 @@
 <section class="item-filter">
   <app-search [games]="games"></app-search>
-
   <mat-form-field>
-    <mat-label>Sort by...</mat-label>
+    <mat-label >Sort by...</mat-label>
     <mat-select
       (selectionChange)="onChangeSortParams()"
       panelClass="sort-select"
+      mat
       [(ngModel)]="sortBy"
     >
       <mat-option value="name">Name</mat-option>

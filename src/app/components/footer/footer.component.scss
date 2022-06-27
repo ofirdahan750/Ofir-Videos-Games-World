@@ -1,21 +1,19 @@
-.footer{
+.footer {
   margin: 0 auto;
-  width: 100%;
-  height: 70px;
-  border-top: 1px solid rgba(84, 84, 84, 0.3);
-&__text {
-  font-weight: 400;
-  margin: 15px 0 60px 10vh;
-  font-size: 1.125rem;
-  line-height: 1.222222222222222;
-  color: #4c4c4c;
-}
+  border-top: 0.1px solid rgba(84, 84, 84, 0.3);
+  &__text {
+    font-weight: 400;
+    font-size: 1.125rem;
+    text-align: center;
+    padding: 30px;
+    line-height: 1.222222222222222;
+    color: #4c4c4c;
+  }
   &__text::before {
     content: "\00a9";
   }
   @media screen and (max-width: 461px) {
     &__text {
-      margin: 15px 0 36px 10vh;
       font-size: 0.875rem;
       line-height: 1.214285714285714;
     }

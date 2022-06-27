@@ -10,7 +10,6 @@ import { HttpService } from '../services/http.service';
   styleUrls: ['./card-page.component.scss'],
 })
 export class CardPageComponent implements OnInit, OnDestroy {
-  gameRating: number;
   gameId: string;
   game: Game;
   routeSub: Subscription;
@@ -20,7 +19,6 @@ export class CardPageComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService
   ) {
-    this.gameRating = 0;
     this.gameId = '';
     this.routeSub = Subscription.EMPTY;
     this.gameSub = Subscription.EMPTY;
@@ -39,22 +37,7 @@ export class CardPageComponent implements OnInit, OnDestroy {
       .getGameDetails(id)
       .subscribe((gameResp: Game) => {
         this.game = gameResp;
-        setTimeout(() => {
-          this.gameRating = this.game.metacritic;
-        }, 1000);
       });
-  }
-
-  getColor(value: number): string {
-    if (value > 75) {
-      return '#5ee432';
-    } else if (value > 50) {
-      return '#fffa50';
-    } else if (value > 30) {
-      return '#f7aa38';
-    } else {
-      return '#ef4655';
-    }
   }
 
   ngOnDestroy(): void {

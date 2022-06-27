@@ -1,20 +1,25 @@
 <form class="search">
-  <input
-    type="text"
-    class="search__input"
-    name="search"
-    placeholder="Search any games...(minimum 2 characters)"
-    (ngModelChange)="onChangeInput()"
-    [(ngModel)]="inputVal"
-    value="routeSub"
-    list="name-game"
-    minlength="2"
-    autocomplete="off"
-    autofocus
-  />
-  <datalist id="name-game">
-    <option *ngFor="let game of gamesList" [value]="game.name">
-      {{ game.name }}
-    </option>
-  </datalist>
+  <mat-form-field appearance="fill">
+    <mat-label>Search any games...</mat-label>
+    <input
+      placeholder="Minimum 1 characters"
+      type="text"
+      aria-label="Text"
+      matInput
+      [(ngModel)]="inputVal"
+      (keyup)="onChangeInput()"
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+      class="search__input"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option.name"
+        (click)="onChangeInput(option.name)"
+      >
+        {{ option.name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
 </form>

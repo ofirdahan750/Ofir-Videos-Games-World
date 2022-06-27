@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 import { Debounce } from 'lodash-decorators';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription, debounceTime } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { Game } from 'src/models';
 @Component({
   selector: 'app-search',
@@ -10,35 +12,41 @@ import { Game } from 'src/models';
 })
 export class SearchComponent implements OnInit {
   @Input() games!: Game[];
-
   public inputVal: String;
-  public gamesList: Game[] | [];
-  private routeSub: Subscription;
-
+  public routeSub: Subscription;
+  public myControl = new FormControl('');
+  gameOptions: Game[];
+  filteredOptions!: Observable<any>;
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.inputVal = '';
     this.routeSub = Subscription.EMPTY;
-    this.gamesList = [];
+    this.gameOptions = [];
   }
-  ngOnInit(): void {
+
+  ngOnInit() {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       if (params['search-input']) {
         this.inputVal = params['search-input'];
       }
-      this.renderDataList();
     });
-  }
-  renderDataList() {
-    this.inputVal.length < 2
-      ? (this.gamesList = [])
-      : (this.gamesList = this.games);
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filter(value || ''))
+    );
+    setTimeout(() => {}, 1);
   }
 
-  @Debounce(650)
-  onChangeInput() {
-    this.renderDataList();
-    if (this.inputVal.length > 2) {
-      this.router.navigate(['search', this.inputVal]);
-    }
+  private _filter(value: string): any {
+    const filterValue = value.toLowerCase();
+
+    return this.games.filter((option) =>
+      option.name.toLowerCase().includes(filterValue)
+    );
+  }
+
+  @Debounce(250)
+  onChangeInput(option?: string): void {
+    if (!this.inputVal) return;
+    this.router.navigate(['search', option || this.inputVal]);
   }
 }

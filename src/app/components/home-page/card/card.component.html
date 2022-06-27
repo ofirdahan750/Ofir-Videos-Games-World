@@ -1,0 +1,15 @@
+<li class="card" (click)="handleClickGameCard(game.id)">
+  <div
+    class="card__img"
+    [style.backgroundImage]="
+      'url(' + currGame.background_image ||
+      'https://upload.wikimedia.org/wikipedia/commons/0/0a/No-image-available.png' +
+        ')'
+    "
+  >
+
+  </div>
+  <div class="card__info-wrapper">
+    <div class="card__name">{{ currGame.name }}</div>
+  </div>
+</li>

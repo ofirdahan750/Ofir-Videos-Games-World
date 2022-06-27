@@ -3,34 +3,10 @@
   [games]="games"
   (searchGames)="searchGames($event)"
 ></app-item-filter>
-<section class="cards" *ngIf="games; else elseloading">
-  <!-- <ul class="cards__grid">
-    <app-card></app-card>
-  </ul> -->
-  <ng-container *ngFor="let game of games">
-    <div class="game" (click)="openGameDetails(game.id)">
-      <div class="game-thumb-container">
-        <img
-          *ngIf="game.background_image"
-          src="{{ game.background_image }}"
-          alt="thumbnail"
-          class="game-thumbnail"
-        />
-        <p *ngIf="!game.background_image">No image</p>
-      </div>
-      <div class="game-description">
-        <p class="game-name">{{ game.name }}</p>
-        <!-- <div class="game-platforms">
-          <img
-            *ngFor="let gamePlatform of game.parent_platforms"
-            class="game-platform"
-            src="assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
-            alt="{{ gamePlatform.platform.slug }}"
-          />
-        </div> -->
-      </div>
-    </div>
-  </ng-container>
+<section class="cards" *ngIf="games.length && !isLoading">
+  <ul class="cards__grid-container">
+    <app-card *ngFor="let game of games" [game]="game"></app-card>
+  </ul>
 </section>
-<div *ngIf="games.length === 0">No games found...</div>
-<ng-template #elseloading>loading...</ng-template>
+<div *ngIf="isLoading">Loading....</div>
+<div *ngIf="!games.length && !isLoading">No games found...</div>

@@ -35,7 +35,9 @@ export class HomePageComponent implements OnInit {
       } else {
         this.searchGames('metacrit');
       }
-      this.isLoading = false;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 0);
     });
   }
 

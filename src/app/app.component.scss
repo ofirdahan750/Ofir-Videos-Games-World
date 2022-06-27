@@ -1,0 +1,11 @@
+.main {
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    max-width: calc(100% - (19px * 2));
+  }
+}
