@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
     this.games = [];
     this.routeSub = Subscription.EMPTY;
     this.gameSub = Subscription.EMPTY;
-    this.isLoading = true;
+    this.isLoading = true; // Need to change to async
   }
 
   ngOnInit(): void {
